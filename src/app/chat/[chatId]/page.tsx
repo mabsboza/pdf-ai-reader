@@ -9,14 +9,13 @@ import PdfViewer from '@/components/PdfViewer';
 import Chat from '@/components/Chat';
 
 
-export default async function Chatpage({
-  params,
-}: {
-  params: { chatId: string };   // 👈 aquí defines inline el tipo
-}) {
+type ChatPageProps = {
+  params: { chatId: string };
+};
+
+export default async function Chatpage({ params }: ChatPageProps) {
   const { chatId } = params;
   const { userId } = await auth();
-
 
   if (!userId) return redirect('/sign-in');
 
