@@ -9,13 +9,14 @@ import PdfViewer from '@/components/PdfViewer';
 import Chat from '@/components/Chat';
 
 
-interface Props {
-  params: { chatId: string }; // correcto: params es un objeto plano
-}
-
-export default async function Chatpage({ params }: Props) {
-  const { chatId } = params; // ✅ sin await
+export default async function Chatpage({
+  params,
+}: {
+  params: { chatId: string };   // 👈 aquí defines inline el tipo
+}) {
+  const { chatId } = params;
   const { userId } = await auth();
+
 
   if (!userId) return redirect('/sign-in');
 
