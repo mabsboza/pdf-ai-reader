@@ -1,6 +1,7 @@
 'use server'
 import AWS from 'aws-sdk';
 import fs from 'fs';
+import path from 'path';
 
 export async function downloadFromS3(fileKey: string) {
   // Configuración manual para evitar que busque ~/.aws/config
@@ -21,8 +22,10 @@ export async function downloadFromS3(fileKey: string) {
   };
 
   const data = await s3.getObject(downloadParams).promise();
-  const file_name = `./temp/pdf-${Date.now()}.pdf`;
-  fs.writeFileSync(file_name, data.Body as Buffer);
 
-  return file_name;
+  // Guardar en /tmp en lugar de ./temp
+  const tempPath = path.join('/tmp', `pdf-${Date.now()}.pdf`);
+  fs.writeFileSync(tempPath, data.Body as Buffer);
+
+  return tempPath;
 }
