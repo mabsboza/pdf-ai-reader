@@ -8,12 +8,13 @@ import ChatSideBar from '@/components/ChatSideBar';
 import PdfViewer from '@/components/PdfViewer';
 import Chat from '@/components/Chat';
 
+
 interface Props {
-  params: { chatId: string };
+  params: { chatId: string }; // correcto: params es un objeto plano
 }
 
-export default async function Chatpage({params}: Props) {          // 👈 Aquí el await
-  const { chatId } =  await params;                // Ahora sí puedes usar chatId
+export default async function Chatpage({ params }: Props) {
+  const { chatId } = params; // ✅ sin await
   const { userId } = await auth();
 
   if (!userId) return redirect('/sign-in');
