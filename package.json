@@ -3,25 +3,52 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "export NODE_OPTIONS='--max-old-space-size=81192' && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@ai-sdk/react": "^2.0.45",
+    "@clerk/nextjs": "^6.31.10",
+    "@langchain/community": "^0.3.56",
+    "@neondatabase/serverless": "^1.0.1",
+    "@pinecone-database/doc-splitter": "^0.0.1",
+    "@pinecone-database/pinecone": "^6.1.2",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@tanstack/react-query": "^5.87.4",
+    "@types/md5": "^2.3.5",
+    "ai": "^3.0.0",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.12.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.6.1",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.5",
+    "fs": "^0.0.1-security",
+    "langchain": "^0.3.34",
+    "lucide-react": "^0.542.0",
+    "md5": "^2.3.0",
+    "next": "15.5.2",
+    "openai-edge": "^1.2.2",
+    "pdf-parse": "^1.1.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.2"
+    "react-dropzone": "^14.3.8",
+    "react-hot-toast": "^2.6.0",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.8",
+    "typescript": "^5"
   }
 }
